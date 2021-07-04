@@ -1,0 +1,172 @@
+@import "../../less/variable.less";
+@import "../../less/icon.less";
+// mac窗口 统一样式
+.macWin {
+  position: relative;
+  z-index: 1;
+  border-radius: 8px;
+  // 全屏样式
+  &.full-screen, &.full-screen-ipx{
+    position: fixed;
+    left: 0;top:0;
+    width: 100%!important;
+    z-index: 999;
+  }
+  // 对苹果x特殊处理
+  &.full-screen-ipx {
+    height: auto!important;
+    bottom: 20px;
+  }
+  &.full-screen {
+    height: 100%!important;
+  }
+  
+  // 缩小样式
+  &.full-narrow{
+    min-height: 40px!important;
+    .win-body{
+      height: 0!important;
+      overflow: hidden;
+      position: relative;
+      display: none;
+    }
+  }
+  // header
+  .win-header {
+    height: 20px;
+    background: @macHeaderBg;
+    border-radius: 8px 8px 0 0;
+    // 标题
+    .win-title {
+      text-align: center;
+      font-size: 12px;
+      line-height: 20px;
+      color: #afafaf;
+    }
+    // mac 操作框
+    .win-handle {
+      display: flex;
+      height: 12px;
+      position: absolute;
+      left: 10px;
+      top:4px;
+      justify-content: space-between;
+      i{
+        width: 12px;
+        height: 12px;
+        border-radius: 100%;
+        cursor: pointer;
+        position: relative;
+        display: inline-block;
+        margin-right: 5px;
+        &::before {
+          display: none;
+          width: 12px;
+          height: 12px;
+          position: absolute;
+          font-size: 12px;
+          font-style: normal;
+          color: #161819;
+          text-align: center;
+          opacity: .6;
+          transform: scale(.6);
+        }
+      }
+      .icon-close{background-image: linear-gradient(#FF5F56, #E0443E);}  // 关闭
+      .icon-narrow{background-image: linear-gradient(#FFBD2E, #DEA123);} // 缩小
+      .icon-screen{background-image: linear-gradient(#27C93F, #1AAB29);} // 放大
+      .icon-screen::before{ content: "\e643"; transform: scale(.8); opacity: .6;}   // 全屏
+      &:hover .icon-close::before, 
+      &:hover .icon-narrow::before,
+      &:hover .icon-screen::before {
+        display: block;
+      }
+    }
+    // 顶部工具栏
+    .top-right {
+      height: 20px;
+      position: absolute;
+      right: 10px;top:0;
+    }
+  }
+  // 主体
+  .win-body {
+    padding-bottom: 20px;
+  }
+  
+  // 尾部
+  .win-footer {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    background: @macFooterBg;
+    position: absolute;
+    bottom: 0;
+    border-radius: 0 0 8px 8px;
+    z-index: 99;
+    > .left {
+      display: flex;
+    }
+    > .right {
+      display: flex;
+    }
+  }
+
+  // 工具栏容器
+  .tool-container {
+    width: 20px;
+    height: 20px;
+    position: relative;
+  }
+  // 动态的工具栏
+  .tool, .tool-move {
+    display: block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #a0abb8;
+    position: relative;
+    &:hover {
+      cursor: pointer;
+      color: #fff;
+      background: #565656;
+    }
+    i {
+      width: 20px;
+      text-align: center;
+      transition: top .2s ease;
+      position: absolute;
+      left: 0;
+      display: block;
+      font-size: 12px;
+      &.tool-close {
+        color: #f1534a;
+      }
+    }
+  }
+  
+  // 这套样式主要用于工具栏点击以后有成功失败等提示
+  .tool-move {
+    overflow: hidden;
+    .tool-close {
+      color: #f1534a;
+    }
+    .tool-main { top:0; }
+    .tool-success-tick { top:20px; }
+    .tool-close { top:20px }
+  
+    // 成功提示
+    &.tool-success {
+      .tool-main {top:-20px;}
+      .tool-success-tick { top:0;}
+    }
+    // 失败提示
+    &.tool-error {
+      .tool-main {top:-20px;}
+      .tool-close {top:0;}
+    }
+  }
+}

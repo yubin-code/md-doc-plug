@@ -1,0 +1,121 @@
+@bg: #252829;
+@fontColor: #a5a5a5;
+@cellBg:#424242;
+.api-doc {
+  background: @bg;
+  overflow: hidden;
+  .api-main {
+    padding-bottom: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling:touch;
+    &.hide {
+      height: 80px;
+      overflow: hidden;
+    }
+  }
+  // 表格样式
+  .field {
+    padding-top: 20px;
+  }
+  .table-container {
+    padding: 0 10px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: auto;
+    .table {
+      font-size: 14px;
+      background: @cellBg;
+      border-radius: 3px;
+      color: @fontColor;
+      word-break: keep-all;
+      border: none;
+      border-collapse: collapse;
+      border-spacing: 0;
+      overflow: hidden;
+      > thead{
+        font-weight: bold;
+        >tr {
+          background: #585858;
+        }
+      }
+      tr {
+        padding: 5px 10px;
+        text-align: left;
+        &:nth-of-type(even){
+          background: @cellBg;
+        }
+        td {
+          color: @fontColor;
+          padding: 5px 10px;
+        }
+      }
+      tbody {
+        tr:hover {
+          background: white;
+          color: #333;
+        }
+      }
+    }
+  }
+ 
+  // 通用title样式
+  .api-title {
+    padding: 10px;
+    color: @fontColor;
+    font-size: 14px;
+    margin: 0;
+  }
+  .api-header {
+    font-size: 14px;
+  }
+
+  // 请求的样式
+  .api-request {
+    display: flex;
+    margin: 0 10px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    background: @cellBg;
+    color: @fontColor;
+    > .method {
+      padding:5px 10px;
+      box-sizing: border-box;
+      border-right: 3px solid @bg;
+    }
+    > .url {
+      padding:5px 10px;
+      flex: 1;
+      border-radius:0 3px 3px 0;
+      overflow-y: hidden;
+      overflow-x: auto;
+      &:hover {
+        background: white;
+        color: #666;
+        cursor: pointer;
+      }
+    }
+  }
+  // 文本描述
+  .text {
+    padding-top: 20px;
+    .content {
+      padding: 0 10px;
+      font-size: 12px;
+      color: @fontColor;
+    }
+    // 返回示例
+    .json {
+      border-radius: 3px;
+      margin: 0 10px;
+      background: white;
+      padding: 20px 10px;
+      box-sizing: border-box;
+      overflow: auto;
+      pre {
+        margin: 0;
+        color: #252829;
+      }
+    }
+  }
+}

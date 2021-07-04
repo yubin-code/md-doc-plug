@@ -1,0 +1,118 @@
+@textColor: #c5c5c5;
+// 目录
+.dir-tree{
+  .tree-treenode {
+    font-size: 12px;
+    color: @textColor;
+    padding: 0 10px;
+    display: flex;
+    height: 24px;
+    line-height: 24px;
+    align-items: flex-start;
+    outline: none;
+    transition: all .2s;
+    cursor: pointer;
+    opacity: 1;
+    &.hide {
+      height: 0;
+      overflow: hidden;
+      opacity: 0;
+    }
+    &:hover {
+      background-color:#3e3e3e;
+    }
+    .tree-unit, .tree-unit-border-left, .tree-unit-border-center, .tree-unit-border-bottom {
+      position: relative;
+      display: inline-block;
+      min-width: 15px;
+      height: 24px;
+      line-height: 24px;
+      vertical-align:top;
+    }
+    .tree-unit-border-left::before,
+    .tree-unit-border-center::before,
+    .tree-unit-border-center::after,
+    .tree-unit-border-bottom::before,
+    .tree-unit-border-bottom::after{
+      position: absolute;
+      content: "";
+      background: @textColor;
+    }
+    // 树的标题
+    .tree-title {
+      vertical-align:top;
+      position: relative;
+      display: inline-block;
+      line-height: 24px;
+      // padding-left: 5px;
+      img {
+        width: 15px;
+        vertical-align: text-top;
+      }
+    }
+    // 简要
+    .tree-remark {
+      font-size: 12px;
+      color: #ccc;
+      &::before {
+        content: "#";
+      }
+    }
+    // 打开状态
+    &.open {
+      .tree-unit{
+        .icon-xiangyou {
+          transform: scale(.9) rotate(90deg);
+        }
+      }
+    }
+    // 纯空白
+    .tree-unit {
+      i{
+        cursor: pointer;
+      }
+      .icon-xiangyou {
+        transition: all .2s;
+        transform: scale(.9);
+        font-size: 12px;
+        display: inline-block;
+      }
+    }
+
+    
+    
+
+    .tree-unit-border-left::before {
+      top: 0px;
+      left: 5px;
+      bottom: 0;
+      width: 1px;
+    }
+    
+    .tree-unit-border-center::before {
+      top: 0px;
+      left: 5px;
+      bottom: 0;
+      width: 1px;
+    }
+    .tree-unit-border-center::after {
+      width: 10px;
+      height: 1px;
+      top:50%;
+      left: 6px;
+    }
+    
+    .tree-unit-border-bottom::before {
+      top: 0px;
+      left: 5px;
+      height: 12px;
+      width: 1px;
+    }
+    .tree-unit-border-bottom::after {
+      top: 50%;
+      left: 5px;
+      height: 1px;
+      width: 10px;
+    }
+  }
+}

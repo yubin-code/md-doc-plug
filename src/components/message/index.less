@@ -1,0 +1,29 @@
+.message{
+  position: fixed;
+  left: 50%;top:20px;
+  padding: 10px 16px;
+  background: red;
+  font-size: 12px;
+  border-radius: 5px;
+  background: white;
+  color: #666;
+  animation: messageShow .3s;
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  line-height: 15px;
+  z-index: 9999;
+  &.hide{
+    animation: messageHide .3s;
+  }
+
+  & i{
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  
+}
+
+@keyframes messageShow { from { top: -50px } }
+@keyframes messageHide {
+  from { margin-top: 0; opacity: 1; }
+  to { margin-top: -50px; opacity: 0 }
+}

@@ -1,0 +1,14 @@
+// 光标动画
+@keyframes twinkle {
+  0% {opacity: 1;display: block;}
+  50% {opacity: 0;display: none;}
+  100% {opacity: 1;display: block;}
+}
+// 旋转动画
+@keyframes spin {
+  from { transform: rotate(0deg);}
+  to { transform: rotate(360deg);}
+}
+.rotate{
+  animation: spin 2s linear infinite;
+}

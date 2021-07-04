@@ -1,0 +1,38 @@
+@import url(../../less//base.less);
+@import url(../../less/animation.less);
+@import url(../code/public.less);
+// 终端
+.termin {
+  box-shadow: rgb(0 0 0 / 55%) 0px 20px 68px;
+  background-color: #161819;
+  border-radius: 8px;
+  .win-body{
+    padding:10px;
+    font-size: 12px;
+    color: #999;
+    line-height: 18px;
+    .code-line {
+      word-wrap: break-word;
+      word-break:break-all;
+    }
+    .termin-home {
+      color:#12c2e0;
+      font-weight: bold;
+      user-select:none;
+      font-size: 12px;
+      margin:0 6px;
+    }
+    .instruct{
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      line-height: 7px;
+      &::before {
+        color: #83c578;
+        font-weight: bold;
+        content: "\e602";
+        font-size: 12px;
+      }
+    }
+  }
+}
