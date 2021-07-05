@@ -99,7 +99,7 @@ export const apiDocParser = (doc) => {
       if(/^returnParam/.test(str)){
         if(_.isEmpty(data.returnParam)){
           data.returnParam = {
-            title: "请求参数",
+            title: "返回参数",
             list: [param],
           }
         }else {

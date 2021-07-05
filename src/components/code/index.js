@@ -380,7 +380,10 @@ export default class Code extends Win {
     });
 
     this.#isHideFileList();
-    this.openFile(file[0]);
+    // 判断第一个是否是对象
+    if(_.isObj(file[0])){
+      this.openFile(file[0]);
+    }
   }
   /**
    * 设置打开文件的位置
@@ -413,6 +416,9 @@ export default class Code extends Win {
    * @returns 
    */
   openFile(file){
+    if(_.isEmpty(file)){
+      this.errorMessage("缺少参数")
+    }
     // 每一个文件必须有一个key而且不能重复
     if(_.isEmpty(file.key)){
       this.errorMessage("文件key不存在不允许打开")
