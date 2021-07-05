@@ -4,7 +4,7 @@ import _ from '../../utils/type'
 import Dom from '../../utils/dom'
 import suffixIcon from './suffixIcon';
 import './index.less';
-const fileType = { js: 'javascript', ts: 'typescript', html: 'xml' };
+const fileType = { js: 'javascript', ts: 'typescript', html: 'xml', ejs: 'xml' };
 /**
  * 代码显示库
  * @param  param = {
