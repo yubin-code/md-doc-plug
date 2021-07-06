@@ -1,6 +1,6 @@
 {
   "name": "md-doc-plug",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "./lib/index.min.js",
   "homepage": "https://github.com/yubin-code",

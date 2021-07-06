@@ -12,10 +12,11 @@ const fileType = { js: 'javascript', ts: 'typescript', html: 'xml', ejs: 'xml' }
  *  narrowOff: false,   关闭缩小功能
  *  screenOff: false,   关闭全屏功能
  *  hideLine: false,   是否隐藏代码行
- *  height: 100;       编辑器高度
  *  closeRetract:false; 禁止目录收回
+ *  height: 100;       编辑器高度
  *  minHeight: 100;    编辑器最小高度
- *  maxHeight: 100;    编辑器最大高度       
+ *  maxHeight: 100;    编辑器最大高度 
+ *  searchField:'name' 这只搜索的字段
  * }
  * defaultOpenFile 默认打开的文件
  * dirClick 目录被点击的时候触发
@@ -200,7 +201,7 @@ export default class Code extends Win {
    * @param {*} value 搜索的值
    */
   search(value){
-    this.tree.search(value, 'name');
+    this.tree.search(value, this.param.searchField || 'name');
   }
   /**
    * 设置当前那个元素被选中
